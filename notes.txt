@@ -1,0 +1,110 @@
+const [text, setText] = useState('');  -> must be empty string
+
+                              function                   from useState, tightly bounded
+<input type="text" onInput={ handleInputChange } value={ text } />
+
+
+function for handling event and updating state, must be in the input tag:
+const handleInputChange = event => {   -> event is the argument
+    const newValue = event.target.value;   target is input field itself
+                                            value is what is inserted to input
+ 
+    setText(newValue);   ->update the state = change the value in the input field
+}
+
+target = 
+
+
+<SearchBox />
+___________________________________________
+
+Handling different inputs  
+! onChange is recommended
+
+<select onChange={ handleChange } value={ value }>
+    <option value="a">A</option>
+    <option value="b">B</option>
+</select>
+
+
+<input type="checkbox" onChange={ handleChange } value="a" checked={ value === 'a' } />
+ 
+<input type="radio" onChange={ handleChange } value="b" checked={ value === 'b' } />
+
+_______________________________________
+CurrencySelection component
+
+in the function declare const [currency, setCurrency]
+
+const handleCurrencyChange = event => {
+    setCurrency(event.target.value);
+}
+
+render select
+<select name="currency" 
+        onChange={ handleCurrencyChange } 
+        value={ currency }
+        >
+    <option value="EUR">EUR</option>  //show currencies using map and useState 
+    <option value="USD">USD</option>
+    <option value="CZK">CZK</option>
+</select>
+
+Exchange rate: {exchangeRate} {currency} / 1 EUR
+
+_______________________________________
+
+useEffect
+
+import { useEffect } from 'react';
+ 
+useEffect(() => {
+ 
+    // this will be called when...
+ 
+}, [valueA, valueB]) // ...any of these values change
+
+Load exchange rates from the bank
+const [exchangeRate, setExchangeRate] = useState(1);
+
+const loadExchangeRate = async(currency) => {
+    const response = await fetch('url'+currency)
+    const data = await response.json();
+
+    setExchangeRate(data.rate); ->when data is fetched, we are updating exchange rate
+}
+
+useEffect(()=> {
+    console.log('Currency changed to: +currency);
+    loadExchangeRate(currency);  -> passing current currency
+
+}, [currency])
+
+*first argument is a function, second is array of dependencies
+
+
+RUNNING ONCE
+
+import { useEffect } from 'react';
+ 
+useEffect(() => {
+ 
+    // this will run only once
+    // when the component is first rendered
+
+ 
+}, [])
+
+
+loadCurrnecies = async(currency) => {
+    const response = await fetch('url')
+    const data = await response.json();
+
+    console.log(data);
+}
+
+useEffect(() => {
+ 
+    loadCurrnecies();
+    
+}, [])
