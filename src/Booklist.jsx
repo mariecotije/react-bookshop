@@ -51,7 +51,9 @@ export default function Booklist() {
           <button
             className="button previous"
             onClick={() => {
-              setPage(page - 1);
+              if (page > 1) {
+                setPage(page - 1);
+              }
             }}
           >
             Previous page

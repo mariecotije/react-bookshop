@@ -13,11 +13,7 @@ export default function MainContent({ currentPage }) {
 
           {currentPage === "contact" ? <h2>Contact form</h2> : ""}
 
-          {currentPage === "login" ? (
-            <LoginForm user={user} setUser={setUser} />
-          ) : (
-            ""
-          )}
+          {currentPage === "login" ? <LoginForm /> : ""}
         </>
       </main>
     </>
