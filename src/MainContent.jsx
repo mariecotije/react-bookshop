@@ -7,7 +7,7 @@ import Contact from "./Contact";
 import BookDetail from "./BookDetail";
 import SubpageLayout from "./SubpageLayout";
 
-export default function MainContent() {
+export default function MainContent({ user, setUser }) {
   return (
     <>
       <main className="main">
@@ -18,9 +18,12 @@ export default function MainContent() {
           <Route path="/" element={<SubpageLayout />}>
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<LoginForm />} />
+            <Route
+              path="/login"
+              element={<LoginForm user={user} setUser={setUser} />}
+            />
             <Route path="/book/:id" element={<BookDetail />} />
-            <Route path="*" element="404: page not found" />
+            <Route path="*" element="404: page not found 😱" />
           </Route>
         </Routes>
       </main>

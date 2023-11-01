@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.scss";
-import Footer from "./Footer";
+import Footer from "../src/components/common/Footer";
+//import InFolder from "../src/components/InFolder";
 import Header from "./Header";
 import MainContent from "./MainContent";
 import { BrowserRouter } from "react-router-dom";
@@ -22,6 +23,8 @@ function App() {
         <MainContent
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
+          user={user}
+          setUser={setUser}
         />
         <Footer />
       </>

@@ -12,6 +12,7 @@
             color: rgb(248, 248, 3);
         }
     }
+
 }
 
 .burger {
@@ -19,8 +20,8 @@
     width: 2rem;
     height: 2rem;
     margin: 0 1rem;
-    margin-left: auto;
     cursor: pointer;
+
 
     div {
         width: 30px;
@@ -28,5 +29,15 @@
         background-color: #fff;
         margin: 6px 0;
 
+    }
+}
+
+.currency-menu {
+    color: #fff;
+    line-height: 1.5rem;
+
+    select {
+        margin: 0.5rem;
+        background-color: rgba(0, 255, 255, 0.609);
     }
 }

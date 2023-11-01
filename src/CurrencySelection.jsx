@@ -58,16 +58,22 @@ export default function CurrencySelection() {
 
   return (
     <>
-      Choose your currency:
-      <select name="currency" value={currency} onChange={handleCurrencyChange}>
-        {currencies.map((currency) => (
-          <option key={currency} value={currency}>
-            {currency}
-          </option>
-        ))}
-      </select>
-      <br />
-      Exchange rate: {exchangeRate} {currency} / 1 EUR
+      <div className="currency-menu">
+        Choose your currency:
+        <select
+          name="currency"
+          value={currency}
+          onChange={handleCurrencyChange}
+        >
+          {currencies.map((currency) => (
+            <option key={currency} value={currency}>
+              {currency}
+            </option>
+          ))}
+        </select>
+        <br />
+        Exchange rate: {exchangeRate} {currency} / 1 EUR
+      </div>
     </>
   );
 }

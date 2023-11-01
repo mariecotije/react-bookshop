@@ -1,11 +1,13 @@
 .header {
     display: flex;
     align-items: center;
+    justify-content: space-around;
     height: 4rem;
-    width: 65em;
+    width: 80em;
     // padding-top: 1rem;
     margin-bottom: 2rem;
     border: solid 1px rgba(127, 255, 212, 0.694);
+    border-radius: 0.3rem;
     background-color: rgba(127, 255, 212, 0.424);
 
 
@@ -14,4 +16,13 @@
         font-size: 2rem;
         padding-left: 1rem;
     }
+
+    .user-info {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 1.2rem;
+        color: rgb(254, 254, 254);
+    }
+
+    
 }

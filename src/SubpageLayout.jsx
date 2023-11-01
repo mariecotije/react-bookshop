@@ -6,7 +6,7 @@ export default function SubpageLayout() {
     <div className="layout">
       <Link className="backHome" to="/">
         {" "}
-        🏠 Back to home{" "}
+        &#127968; Back to home{" "}
       </Link>
 
       <div className="layout__content">
