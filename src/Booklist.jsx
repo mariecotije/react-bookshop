@@ -17,7 +17,7 @@ export default function Booklist() {
     const data = await response.json();
 
     data.forEach((book) => {
-      console.log(book);
+      //console.log(book);
     });
 
     setBooks(data); // Set the books data in the state

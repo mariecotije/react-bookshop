@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Topmenu.scss";
 
-export default function Topmenu({ currentPage, setCurrentPage }) {
+export default function Topmenu() {
   //Give it a state open with the default value false using the useState hook.
   //Make it also get for you the setOpen function.
   const [open, setOpen] = useState(false);
@@ -12,51 +13,52 @@ export default function Topmenu({ currentPage, setCurrentPage }) {
   };
 
   //Make it so that when a link in the header menu is clicked, the content of the page changes.
-  const handlePageClick = (page) => {
-    setCurrentPage(page);
-  };
+  //replaced by <Link> and location hook
+  // const handlePageClick = (page) => {
+  //   setCurrentPage(page);
+  // };
+
+  const { pathname: location } = useLocation();
+  //console.log(location);
 
   return (
     //display nav menu if state is open
     <>
       {open ? (
         <nav className="topmenu">
-          <a
-            className={
-              `link` + (currentPage === "" ? " link--highlighted" : "")
-            }
-            href="#"
-            onClick={() => handlePageClick("")} //when clicked the content of the page is updated
+          <Link
+            className={`link` + (location === "/" ? " link--highlighted" : "")}
+            to="/"
           >
             Home
-          </a>
-          <a
+          </Link>
+
+          <Link
             className={
-              `link` + (currentPage === "about" ? " link--highlighted" : "")
+              `link` + (location === "/about-us" ? " link--highlighted" : "")
             }
-            href="#about"
-            onClick={() => handlePageClick("about")}
+            to="/about-us"
           >
             About us
-          </a>
-          <a
+          </Link>
+
+          <Link
             className={
-              `link` + (currentPage === "contact" ? " link--highlighted" : "")
+              `link` + (location === "/contact" ? " link--highlighted" : "")
             }
-            href="#contact"
-            onClick={() => handlePageClick("contact")}
+            to="/contact"
           >
             Contact
-          </a>
-          <a
+          </Link>
+
+          <Link
             className={
-              `link` + (currentPage === "login" ? " link--highlighted" : "")
+              `link` + (location === "/login" ? " link--highlighted" : "")
             }
-            href="#login"
-            onClick={() => handlePageClick("login")}
+            to="/login"
           >
             Login
-          </a>
+          </Link>
         </nav>
       ) : (
         ""

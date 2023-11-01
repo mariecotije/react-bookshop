@@ -3,6 +3,7 @@ import "./App.scss";
 import Footer from "./Footer";
 import Header from "./Header";
 import MainContent from "./MainContent";
+import { BrowserRouter } from "react-router-dom";
 // import CurrencyContext from "./CurrencyContext";
 // import context from "./Context";
 
@@ -10,11 +11,21 @@ function App() {
   const [currentPage, setCurrentPage] = useState("");
   const [user, setUser] = useState(null);
   return (
-    <>
-      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} user={user} setUser={setUser} />
-      <MainContent currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <>
+        <Header
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          user={user}
+          setUser={setUser}
+        />
+        <MainContent
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+        <Footer />
+      </>
+    </BrowserRouter>
   );
 }
 

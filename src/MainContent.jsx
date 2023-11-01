@@ -1,20 +1,28 @@
+import { Routes, Route } from "react-router-dom";
 import Homepage from "./Homepage";
 import LoginForm from "./LoginForm";
 import "./MainContent.scss";
+import AboutUs from "./AboutUs";
+import Contact from "./Contact";
+import BookDetail from "./BookDetail";
+import SubpageLayout from "./SubpageLayout";
 
-export default function MainContent({ currentPage }) {
+export default function MainContent() {
   return (
     <>
       <main className="main">
-        <>
-          {currentPage === "" ? <Homepage /> : ""}
+        <Routes>
+          <Route path="/" element={<Homepage />} />
 
-          {currentPage === "about" ? <h2>About us</h2> : ""}
-
-          {currentPage === "contact" ? <h2>Contact form</h2> : ""}
-
-          {currentPage === "login" ? <LoginForm /> : ""}
-        </>
+          {/* Wrap with subpage layout all these links */}
+          <Route path="/" element={<SubpageLayout />}>
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/book/:id" element={<BookDetail />} />
+            <Route path="*" element="404: page not found" />
+          </Route>
+        </Routes>
       </main>
     </>
   );
